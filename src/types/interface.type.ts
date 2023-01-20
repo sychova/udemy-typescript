@@ -1,15 +1,15 @@
-let firstname = "John";
+// let firstname = "John";
 
-// firstname = 25;
+// // firstname = 25;
 
-const number = 85;
+// const number = 85;
 
-let numberTwo = 90;
+// let numberTwo = 90;
 
-let finalResult: number;
+// let finalResult: number;
 
-function addNumber(a: number, b: number) {
-  return a + b;
-}
+// function addNumber(a: number, b: number) {
+//   return a + b;
+// }
 
-finalResult = addNumber(10, 15);
+// finalResult = addNumber(10, 15);

@@ -1,11 +1,11 @@
-const addNumbers = (): void => {
-  console.log(2 + 4);
-}
+// const addNumbers = (): void => {
+//   console.log(2 + 4);
+// }
 
-addNumbers();
+// addNumbers();
 
-const throwNewError = (): never => {
-  throw new Error("Your Program Terminated because");
-};
+// const throwNewError = (): never => {
+//   throw new Error("Your Program Terminated because");
+// };
 
-throwNewError();
+// throwNewError();

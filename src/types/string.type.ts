@@ -1,11 +1,11 @@
-let firstName: string = "Mark";
+// let firstName: string = "Mark";
 
-let fullName: string = firstName + " " + "Doe";
+// let fullName: string = firstName + " " + "Doe";
 
-fullName.split(" ");
+// fullName.split(" ");
 
-console.log(fullName.split(" "));
+// console.log(fullName.split(" "));
 
-fullName = 123;
+// fullName = 123;
 
-Math.log(fullName);
+// Math.log(fullName);

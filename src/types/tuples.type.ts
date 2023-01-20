@@ -1,16 +1,16 @@
-// firstname, lastname, age
+// // firstname, lastname, age
 
-let person: [string, string, number?];
+// let person: [string, string, number?];
 
-person = ["John", "Doe"];
+// person = ["John", "Doe"];
 
-// [
-//   NumberOfStudents: Number,
-//   passing: boolean,
-//   "John", "John",
-// ]
+// // [
+// //   NumberOfStudents: Number,
+// //   passing: boolean,
+// //   "John", "John",
+// // ]
 
-type ListOfStudents = [number, boolean, ... string[]]
+// type ListOfStudents = [number, boolean, ... string[]]
 
-const passingStudents: ListOfStudents = [3, true, "John", "Stella", "Mark"];
-const failingStudents: ListOfStudents = [1, false, "Scott"];
+// const passingStudents: ListOfStudents = [3, true, "John", "Stella", "Mark"];
+// const failingStudents: ListOfStudents = [1, false, "Scott"];

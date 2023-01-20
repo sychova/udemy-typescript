@@ -1,11 +1,11 @@
-let number: readonly number[] = [1, 2, 3];
+// let number: readonly number[] = [1, 2, 3];
 
-number.push(4);
+// number.push(4);
 
-type readonlyPerson = readonly [string, string, number];
+// type readonlyPerson = readonly [string, string, number];
 
-const person: readonlyPerson = ["John", "Smith", 32];
+// const person: readonlyPerson = ["John", "Smith", 32];
 
-type a = Readonly<string[]>;
+// type a = Readonly<string[]>;
 
-type c = Readonly<[string, string, number]>;
+// type c = Readonly<[string, string, number]>;
