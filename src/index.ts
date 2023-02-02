@@ -44,7 +44,8 @@ CommercialVehicle {
     public colors: AutomobileColors[],
     public description: string,
     public capacity: string,
-    public licenseRenewalDate: Date
+    public licenseRenewalDate: Date,
+    private driverName: string = "John"
   ) {}
 }
 
