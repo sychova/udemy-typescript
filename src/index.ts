@@ -1,60 +1,58 @@
-enum AutomobileTypes {
-  car = "car",
-  bus = "bus",
-  van = "van",
-  truck = "truck",
-  bike = "bike",
+type User = {
+  name: string;
+};
+
+// type User = {
+//   lastName: string;
+// };
+
+type AdminUser = {
+  isAdmin: boolean;
+};
+
+// Intersection Type
+const userAndAdmin: User & AdminUser = {
+  name: "John",
+  isAdmin: true,
+};
+
+// Union Type
+const userOrAdmin: User | AdminUser = {
+  name: "Mark",
+};
+
+// Tuples 
+type ResponseTuple = [string, number];
+
+interface Person {
+  name: string;
 }
 
-enum AutomobileBrands {
-  ferrari = "ferrari",
-  honda = "honda",
-  bmw = "bmw",
-  toyota = "toyota",
+interface Person {
+  lastName: string;
 }
 
-enum AutomobileColors {
-  red = "red",
-  blue = "blue",
-  white = "white",
-  black = "black",
-  silver = "silver",
+const person: Person = {
+  name: "John",
+  lastName: "Malkovich",
+}
+///////////////////////////////
+interface Name {
+  name: string;
 }
 
-interface Automobile<Type, Brand, Colors> {
-  type: Type;
-  brand: Brand;
-  colors: Colors[];
-  description: string;
+interface LastName {
+  lastName: string;
 }
 
-interface CommercialVehicle {
-  capacity: string;
-  licenseRenewalDate: Date;
+class Person implements Name, LastName {
+  constructor(
+    public name: string,
+    public lastName: string
+    ) {}
 }
 
-class Truck
-implements
-Automobile<string, AutomobileBrands, AutomobileColors>,
-CommercialVehicle {
-  public type: string = "truck";
-
-  constructor (
-    public brand: AutomobileBrands,
-    public colors: AutomobileColors[],
-    public description: string,
-    public capacity: string,
-    public licenseRenewalDate: Date,
-    private driverName: string = "John"
-  ) {}
+const person2: Person = {
+  name: "John",
+  lastName: "Malkovich",
 }
-
-const toyotaTruck: Truck = new Truck(
-  AutomobileBrands.toyota,
-  [AutomobileColors.black, AutomobileColors.silver],
-  "This is a Toyota truck",
-  "15 tonns",
-  new Date()
-)
-
-console.log(toyotaTruck);
