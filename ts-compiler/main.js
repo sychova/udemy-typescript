@@ -1,61 +1,19 @@
-// class User {
-//   constructor(name, email) {
-//     this.name = name;
-//     this.email = email;
-//     this.points = 0;
-//   }
+const book = new Object();
 
-//   login() {
-//     console.log(this.name, "has logged in");
-//   }
+Object.defineProperty(book, "title", {
+  value: "The title",
+  writable: true,
+  enumerable: true,
+  configurable: true,
+});
 
-//   logout() {
-//     console.log(this.name, "has logged out");
-//   }
+Object.defineProperty(book, "author", {
+  value: "The author",
+  writable: false,
+  enumerable: true,
+  configurable: true,
+});
 
-//   addPoint() {
-//     this.points++;
-//     console.log("Total point:", this.points);
-//   }
-// }
+book.author = "Mark";
 
-// const user = new User("John", "john@example.com");
-
-// console.log(user);
-
-function User(name, email) {
-  this.name = name;
-  this.email = email;
-  this.points = 0;
-}
-
-User.prototype.login = function () {
-  console.log(this.name, "has logged in");
-};
-
-User.prototype.logout = function () {
-  console.log(this.name, "has logged out");
-};
-
-User.prototype.addPoint = function () {
-  this.points++;
-  console.log("Total point:", this.points);
-};
-
-function AdminUser(name, email, peopleReporting) {
-  User.apply(this, [name, email]);
-  this.peopleReporting = peopleReporting;
-}
-
-AdminUser.prototype = Object.create(User.prototype);
-
-AdminUser.prototype.updatePeopleReporting = function (newNumber) {
-  this.peopleReporting = newNumber;
-};
-
-const user = new User("John", "john@example.com");
-
-const admin = new AdminUser("Mark", "mark@example.com", 10);
-
-console.log(user);
-console.log(admin);
+console.log(book);
