@@ -42,13 +42,20 @@ User.prototype.addPoint = function () {
   console.log("Total point:", this.points);
 };
 
-function AdminUser(name, email) {
+function AdminUser(name, email, peopleReporting) {
   User.apply(this, [name, email]);
+  this.peopleReporting = peopleReporting;
 }
+
+AdminUser.prototype = Object.create(User.prototype);
+
+AdminUser.prototype.updatePeopleReporting = function (newNumber) {
+  this.peopleReporting = newNumber;
+};
 
 const user = new User("John", "john@example.com");
 
-const admin = new AdminUser("Mark", "mark@example.com");
+const admin = new AdminUser("Mark", "mark@example.com", 10);
 
 console.log(user);
 console.log(admin);
