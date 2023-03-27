@@ -19,11 +19,17 @@ function AircraftManufacturer(manufacturer) {
             target.prototype.origin = "USA";
             target.prototype.manufacturer = Manufacturers.AIRBUS;
             target.prototype.type = "Jet";
+            target.prototype.airbusMethod = () => {
+                console.log("Function by Airbus");
+            };
         }
         else {
             target.prototype.origin = "France";
             target.prototype.manufacturer = Manufacturers.BOEING;
             target.prototype.type = "Helicopter";
+            target.prototype.boingMethod = () => {
+                console.log("Function by Boing");
+            };
         }
     };
 }
@@ -45,6 +51,8 @@ Airplane = __decorate([
     __metadata("design:paramtypes", [String, String])
 ], Airplane);
 const airplane = new Airplane("Airbus A380", "John");
-//@ts-ignore
 console.log(airplane.manufacturer);
+airplane.airbusMethod
+    ? airplane.airbusMethod()
+    : console.log("Method does not exist");
 //# sourceMappingURL=app.js.map
