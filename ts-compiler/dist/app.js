@@ -1,33 +1,88 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-function AddLocation(lat, long) {
-    return (classConstructor) => {
-        return class extends classConstructor {
-            constructor(...args) {
-                super(...args);
-                this.mapLocation = { lat, long };
-            }
-        };
-    };
-}
-let Person = class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-};
-Person = __decorate([
-    AddLocation(1.234, 1.876),
-    __metadata("design:paramtypes", [String, Number])
-], Person);
-const person = new Person("John", 32);
-console.log(person);
+// const promise: Promise<string> = new Promise((res, rej) => {
+//   setTimeout(() => {
+//     res("Done!");
+//   }, 1000);
+// });
+// type AwaitedType = Awaited<typeof promise>;
+/////////////////////////////////////////////////////////////////
+// type Roles = "author" | "editor" | "researcher";
+// interface User {
+//   name: string;
+//   email: string;
+//   age: number;
+// }
+// interface Article {
+//   title: string;
+//   content: string;
+//   contributors: Record<Roles, User>;
+// }
+// const article: Article = {
+//   title: "Title",
+//   content: "Content",
+//   contributors: {
+//     author: { name: "authorName", email: "authorEmail", age: 11 },
+//     editor: { name: "editorName", email: "editorName", age: 22 },
+//     researcher: { name: "researcherName", email: "reseracherEmail", age: 33 },
+//   },
+// };
+/////////////////////////////////////////////////////////////////
+// interface Person {
+//   name: string;
+//   age: number;
+//   address: string;
+// }
+// type NameAndAge = Pick<Person, "name" | "age">;
+// const person: NameAndAge = {
+//   name: "John",
+//   age: 32,
+// };
+// person.name = "Mark";
+/////////////////////////////////////////////////////////////////
+// interface User {
+//   name: string;
+//   age: number;
+//   email: string;
+//   password: string;
+// }
+// type JustNameAndAge = Omit<User, "password" | "email">;
+/////////////////////////////////////////////////////////////////
+// interface User {
+//   name: string;
+//   email: string;
+//   password: string;
+// }
+// function updateUser(user: User, updates: Partial<User>) {
+//   return { ...user, ...updates };
+// }
+// const user: User = {
+//   name: "John",
+//   email: "email",
+//   password: "password",
+// };
+// const updatedUser = updateUser(user, { email: "newEmail" });
+/////////////////////////////////////////////////////////////////
+// interface User {
+//   name?: string;
+//   age?: number;
+//   email?: string;
+//   password?: string;
+// }
+// type RegisterUser = Required<Pick<User, "email" | "password">>;
+/////////////////////////////////////////////////////////////////
+// interface User {
+//   name: string;
+//   age: number;
+// }
+// const user: Readonly<User> = {
+//   name: "John",
+//   age: 32,
+// };
+// user.name = "Mark";
+/////////////////////////////////////////////////////////////////
+// type City = "new york" | "london" | "tokyo";
+// type UppercaseCity = Uppercase<City>;
+// type LowercaseCity = Lowercase<UppercaseCity>;
+// type CapitalCity = Capitalize<City>;
+// type UncapitalCity = Uncapitalize<CapitalCity>;
 //# sourceMappingURL=app.js.map
