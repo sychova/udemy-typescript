@@ -1,114 +1,136 @@
-// const promise: Promise<string> = new Promise((res, rej) => {
-//   setTimeout(() => {
-//     res("Done!");
-//   }, 1000);
+// function convertNumberToString(number) {
+//   if (typeof number !== "number") {
+//     console.log("Input a valid number");
+//   }
+//   return number.toString();
+// }
+
+////////////////////////////////////////////////////////
+
+// const user = {
+//   name: "John",
+//   age: 32,
+// };
+
+// let tom: typeof user;
+
+// function printStrings(str: string | string[] | null) {
+//   if (str && typeof str === "object") {
+//     for (const s of str) {
+//       console.log(s);
+//     }
+//   } else if (typeof str === "string") {
+//     console.log(str);
+//   } else {
+//     console.log("Pass an array of strings or a string as an argument");
+//   }
+// }
+
+////////////////////////////////////////////////////////
+
+// type Person = {
+//   name: string;
+//   age?: number;
+// };
+
+// function printAge(person: Person) {
+//   if (person.age) {
+//     console.log(person.age);
+//   } else {
+//     console.log("Age unknown");
+//   }
+// }
+
+// printAge({
+//   name: "John",
+//   age: "age",
 // });
 
-// type AwaitedType = Awaited<typeof promise>;
+////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////
-
-// type Roles = "author" | "editor" | "researcher";
-
-// interface User {
-//   name: string;
-//   email: string;
-//   age: number;
-// }
-
-// interface Article {
-//   title: string;
-//   content: string;
-//   contributors: Record<Roles, User>;
-// }
-
-// const article: Article = {
-//   title: "Title",
-//   content: "Content",
-//   contributors: {
-//     author: { name: "authorName", email: "authorEmail", age: 11 },
-//     editor: { name: "editorName", email: "editorName", age: 22 },
-//     researcher: { name: "researcherName", email: "reseracherEmail", age: 33 },
-//   },
+// type Circle = {
+//   kind: "circle";
+//   radius: number;
 // };
 
-/////////////////////////////////////////////////////////////////
-
-// interface Person {
-//   name: string;
-//   age: number;
-//   address: string;
-// }
-
-// type NameAndAge = Pick<Person, "name" | "age">;
-
-// const person: NameAndAge = {
-//   name: "John",
-//   age: 32,
+// type Square = {
+//   kind: "square";
+//   sideLenght: number;
 // };
 
-// person.name = "Mark";
+// type Shape = Circle | Square;
 
-/////////////////////////////////////////////////////////////////
-
-// interface User {
-//   name: string;
-//   age: number;
-//   email: string;
-//   password: string;
+// function getArea(shape: Shape) {
+//   if (shape.kind === "circle") {
+//     return Math.PI * shape.radius ** 2;
+//   } else {
+//     return shape.sideLenght ** 2;
+//   }
 // }
 
-// type JustNameAndAge = Omit<User, "password" | "email">;
+////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////
-
-// interface User {
-//   name: string;
-//   email: string;
-//   password: string;
-// }
-
-// function updateUser(user: User, updates: Partial<User>) {
-//   return { ...user, ...updates };
-// }
-
-// const user: User = {
-//   name: "John",
-//   email: "email",
-//   password: "password",
+// type Circle = {
+//   kind: "circle";
+//   radius: number;
 // };
 
-// const updatedUser = updateUser(user, { email: "newEmail" });
-
-/////////////////////////////////////////////////////////////////
-
-// interface User {
-//   name?: string;
-//   age?: number;
-//   email?: string;
-//   password?: string;
-// }
-
-// type RegisterUser = Required<Pick<User, "email" | "password">>;
-
-/////////////////////////////////////////////////////////////////
-
-// interface User {
-//   name: string;
-//   age: number;
-// }
-
-// const user: Readonly<User> = {
-//   name: "John",
-//   age: 32,
+// type Square = {
+//   kind: "square";
+//   sideLenght: number;
 // };
 
-// user.name = "Mark";
+// type Shape = Circle | Square;
 
-/////////////////////////////////////////////////////////////////
+// function getArea(shape: Shape) {
+//   if ("radius" in shape) {
+//     return Math.PI * shape.radius ** 2;
+//   } else {
+//     return shape.sideLenght ** 2;
+//   }
+// }
 
-// type City = "new york" | "london" | "tokyo";
-// type UppercaseCity = Uppercase<City>;
-// type LowercaseCity = Lowercase<UppercaseCity>;
-// type CapitalCity = Capitalize<City>;
-// type UncapitalCity = Uncapitalize<CapitalCity>;
+////////////////////////////////////////////////////////
+
+abstract class Product {
+  constructor(public name: string, public price: number) {}
+
+  abstract getPrice(): number;
+}
+
+class Electronics extends Product {
+  constructor(name: string, price: number, public warranty: number) {
+    super(name, price);
+  }
+
+  getPrice(): number {
+    return this.price;
+  }
+}
+
+class Clothing extends Product {
+  constructor(
+    name: string,
+    price: number,
+    public size: string,
+    public material: string
+  ) {
+    super(name, price);
+  }
+
+  getPrice(): number {
+    return this.price;
+  }
+}
+
+function displayDetails(product: Product): void {
+  console.log(`Name: ${product.name}`);
+  console.log(`Price ${product.getPrice()}`);
+
+  if (product instanceof Electronics) {
+    console.log(`Warranty: ${product.warranty}`);
+  } else if (product instanceof Clothing) {
+    console.log(`Size: ${product.size}`);
+    console.log(`Material: ${product.material}`);
+  }
+}
