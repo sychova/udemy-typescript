@@ -39,4 +39,4 @@ AppDataSource.initialize()
     );
   });
 
-app.use('/', tasksRouter);
+app.use('/tasks', tasksRouter);
