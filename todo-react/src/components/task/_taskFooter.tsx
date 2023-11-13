@@ -8,6 +8,7 @@ import {
 import PropTypes from 'prop-types';
 
 import { ITaskFooter } from './interfaces/ITaskFooter';
+import { Status } from '../createTaskForm/enums/Status';
 
 export const TaskFooter: FC<ITaskFooter> = (
   props,
@@ -30,8 +31,9 @@ export const TaskFooter: FC<ITaskFooter> = (
         label="In Progress"
         control={
           <Switch
-            onChange={(e) => onStatusChange(e)}
+            onChange={(e) => onStatusChange(e, id)}
             color="warning"
+            defaultChecked={status === Status.inProgress}
           />
         }
       />
@@ -40,7 +42,7 @@ export const TaskFooter: FC<ITaskFooter> = (
         color="success"
         size="small"
         sx={{ color: '#ffffff' }}
-        onClick={(e) => onClick(e)}
+        onClick={(e) => onClick(e, id)}
       >
         Mark complete
       </Button>
