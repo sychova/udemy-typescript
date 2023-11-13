@@ -1,4 +1,4 @@
-import React, { ReactNode, FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 interface IComposeContext {
   components?: FC<{ children?: ReactNode }>[];

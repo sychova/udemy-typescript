@@ -135,44 +135,46 @@ export const TaskArea: FC = (): ReactElement => {
           xs={10}
           md={8}
         >
-          {error && (
-            <Alert severity="error">
-              There was an error fetching your tasks
-            </Alert>
-          )}
-
-          {!error &&
-            Array.isArray(data) &&
-            data.length === 0 && (
-              <Alert severity="warning">
-                You do not have any tasks created yet
+          <>
+            {error && (
+              <Alert severity="error">
+                There was an error fetching your tasks
               </Alert>
             )}
 
-          {isLoading ? (
-            <LinearProgress />
-          ) : (
-            Array.isArray(data) &&
-            data.length > 0 &&
-            data.map((each, index) => {
-              return each.status === Status.todo ||
-                each.status === Status.inProgress ? (
-                <Task
-                  key={index + each.priority}
-                  id={each.id}
-                  title={each.title}
-                  date={new Date(each.date)}
-                  description={each.description}
-                  priority={each.priority}
-                  status={each.status}
-                  onStatusChange={onStatusChangeHandler}
-                  onClick={markCompleteHandler}
-                />
-              ) : (
-                false
-              );
-            })
-          )}
+            {!error &&
+              Array.isArray(data) &&
+              data.length === 0 && (
+                <Alert severity="warning">
+                  You do not have any tasks created yet
+                </Alert>
+              )}
+
+            {isLoading ? (
+              <LinearProgress />
+            ) : (
+              Array.isArray(data) &&
+              data.length > 0 &&
+              data.map((each, index) => {
+                return each.status === Status.todo ||
+                  each.status === Status.inProgress ? (
+                  <Task
+                    key={index + each.priority}
+                    id={each.id}
+                    title={each.title}
+                    date={new Date(each.date)}
+                    description={each.description}
+                    priority={each.priority}
+                    status={each.status}
+                    onStatusChange={onStatusChangeHandler}
+                    onClick={markCompleteHandler}
+                  />
+                ) : (
+                  false
+                );
+              })
+            )}
+          </>
         </Grid>
       </Grid>
     </Grid>
